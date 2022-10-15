@@ -8,6 +8,6 @@ int main(){
 	std::cin >> x;
 	std::cout << " sqrt x = " << sqrt(x);
 
-	std::cout << " Git commit 1 ";
+	std::cout << " Git commit 1.2 ";
 
 }
