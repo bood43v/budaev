@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class fraction
+class Fraction  
 {
 
 	private:
@@ -11,11 +11,11 @@ class fraction
     
 
   	public:
-  		//Конструктор без параметров
-	    fraction();
+  		/// Конструктор без параметров
+	    Fraction();
 
 		//Конструктор с параметрами
-		fraction(int num, int denom);
+		Fraction(int num, int denom);
 
 		////Деструктор
 		//~fraction();
@@ -24,40 +24,37 @@ class fraction
 	    void initF(int num, int denom);
 
 	    //Вернуть знаменатель
-	    int getNumeratorF(fraction f);
+	    int getNumeratorF() const;
 
 	    //Вернуть числитель
-	    int getDenominatorF(fraction f);
+	    int getDenominatorF() const; 
 
 	    //Сравнение дробей
-	    void compareF(fraction f1, fraction f2);
-
-		////Сравнение дробей
-		//int compareF(fraction f1, fraction f2)
+	    int compareF(Fraction f1, Fraction f2);
 
 	    //Сумма дробей
-	    fraction addF(fraction f1, fraction f2);
+	    Fraction addF(Fraction const& f2);
 
 	    //Разность дробей
-	   	fraction subF(fraction f1, fraction f2);
+	   	Fraction subF(Fraction const& f2);
 
 	   	//Произведение дробей
-	    fraction multF(fraction f1, fraction f2);
+	    Fraction multF(Fraction const& f2);
 
 	    //Частное дробей
-	    fraction divF(fraction f1, fraction f2);
+	    Fraction divF(Fraction const& f2);
 
 	    //Вывод дроби
-		void printF(fraction f);
+		void printF();
 
 		//Наибольший общий делитель
 		int nod(int a, int b);
 
 		//Сокращение
-		fraction shortenF(fraction f1);
+		Fraction shortenF();
 
 		//Перевод в десятичную дробь
-		double convertToDoubleF(fraction f);
+		double convertToDoubleF();
 
 };
 

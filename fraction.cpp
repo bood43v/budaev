@@ -6,12 +6,12 @@ using namespace std;
 
 
 	//Конструктор
-    fraction::fraction(){ 
+    Fraction::Fraction(){ 
     	numerator = 1; denominator = 1;
     }
 
 	//Конструктор с параметрами
-	fraction::fraction(int num, int denom) {
+	Fraction::Fraction(int num, int denom) {
 		if (denom != 0)
 		{
 			numerator = num;
@@ -30,7 +30,7 @@ using namespace std;
 	//fraction::~fraction() { return; }
 
     //Задание дроби
-    void fraction::initF(int num, int denom){  
+    void Fraction::initF(int num, int denom){  
     	//fraction f;
 
 		//if (denom == 0) throw 
@@ -49,96 +49,86 @@ using namespace std;
     }
 
     //Вернуть числитель
-	int fraction::getNumeratorF(fraction f) {
-		return f.numerator;
+	int Fraction::getNumeratorF() const {
+		return numerator;
 	}
 
     //Вернуть знаменатель
-	int fraction::getDenominatorF(fraction f) {
-		return f.denominator;
+	int Fraction::getDenominatorF() const {
+		return denominator;
 	}
 
+
+
 	//Сравнить дроби
-	void fraction::compareF(fraction f1, fraction f2) {
-		fraction f;
-		 
-			f = subF(f1,f2);
-			if (numerator > 0) {
-				cout << f1.numerator << "/" << f1.denominator << " is larger than " 
-				<< f2.numerator << "/" << f2.denominator;
-			} 
+	int Fraction::compareF(Fraction f1, Fraction f2) {
+		Fraction f;
+
+		f = f1.subF(f2);
+		if (f.numerator > 0) {
+			return 1;
+		}
+		else {
+			if (f.numerator < 0) {
+				return -1;
+			}
 			else {
-			if (numerator < 0) {
-				cout << f2.numerator << "/" << f2.denominator << " is larger than " 
-				<< f1.numerator << "/" << f1.denominator;
-			} 
-			else {
-				cout << f1.numerator << "/" << f1.denominator << " is equal " 
-				<< f2.numerator << "/" << f2.denominator;
+				return 0;
 			}
 		}
 		cout << endl;
 	}
 
-	////Сравнить дроби
-	//int fraction::compareF(fraction f1, fraction f2) {
-	//	fraction f;
-
-	//	f = subF(f1, f2);
-	//	if (numerator > 0) {
-	//		return 1;
-	//	}
-	//	else {
-	//		if (numerator < 0) {
-	//			return -1;
-	//		}
-	//		else {
-	//			return 0;
-	//		}
-	//	}
-	//	cout << endl;
-	//}
-
 	//Сумма дробей
-    fraction fraction::addF(fraction f1, fraction f2){
-    	fraction f;
-    	numerator = (f1.numerator * f2.denominator) + (f2.numerator*f1.denominator);
-		denominator = f1.denominator*f2.denominator;
+    Fraction Fraction::addF( Fraction const& f2 ){
+    	Fraction f;
+    	int num_ = (this->numerator * f2.denominator) + (f2.numerator* this->denominator);
+		int denom_ = this->denominator*f2.denominator;
 		return f;
     }
 
     //Разность дробей
-    fraction fraction::subF(fraction f1, fraction f2){
-    	fraction f;
-		numerator = (f1.numerator*f2.denominator) - (f2.numerator*f1.denominator);
-		denominator = f1.denominator*f2.denominator;
+  //  fraction fraction::subF(fraction f1, fraction f2){
+  //  	fraction f;
+		//numerator = (f1.numerator*f2.denominator) - (f2.numerator*f1.denominator);
+		//denominator = f1.denominator*f2.denominator;
+		//return f;
+  //  }
+
+	Fraction Fraction::subF( Fraction const &f2 ) {  // todo const &
+		
+		int num_ = (this->numerator * f2.denominator) - (f2.numerator * this->denominator);
+		int denom_ = this->denominator * f2.denominator;
+		Fraction f(num_, denom_);
 		return f;
-    }
+	}
 
     //Произведение дробей
-    fraction fraction::multF(fraction f1, fraction f2){
-		fraction f;
-		numerator = f1.numerator*f2.numerator;
-		denominator = f1.denominator*f2.denominator;
+    Fraction Fraction::multF( Fraction const& f2 ){
+
+		int num_ = this->numerator*f2.numerator;
+		int denom_ = this->denominator*f2.denominator;
+		Fraction f(num_, denom_);
 		return f;
 	}
 
 	//Частное дробей
-    fraction fraction::divF(fraction f1, fraction f2){
-		fraction f;
-		numerator = f1.numerator*f2.denominator;
-		denominator = f1.denominator*f2.numerator;
+    Fraction Fraction::divF(Fraction const& f2){
+
+		int num_ = this->numerator*f2.denominator;
+		int denom_ = this->denominator*f2.numerator;
+		Fraction f(num_, denom_);
 		return f;
 	}
 
 	//Вывод дроби
-	void fraction::printF(fraction f) {
-		cout << f.numerator << "/" << f.denominator;
+	void Fraction::printF() {
+		cout << numerator << "/" << denominator;
 	}
 
 
 	//Наибольший общий делитель
-	int fraction::nod(int a, int b)
+	int Fraction::nod(int a, int b)
 	{
 		a = abs(a);
 		b = abs(b);
@@ -164,19 +154,21 @@ using namespace std;
 	}
 
 	//Сокращение
-	fraction fraction::shortenF(fraction f1){
-		fraction f;
+	Fraction Fraction::shortenF(){
+		
+
 		int div;
-		div = nod(f1.numerator, f1.denominator);
-		numerator = f1.numerator / div;
-		denominator = f1.denominator / div;
+		div = nod(this->numerator, this->denominator);
+		int num_ = this->numerator / div;
+		int denom_ = this->denominator / div;
+		Fraction f(num_, denom_);
 		return f;
 	}
 
 	//Перевод в десятичную дробь
-	double fraction::convertToDoubleF(fraction f1) 
+	double Fraction::convertToDoubleF() 
 		{
-			return (double(f1.numerator) / double(f1.denominator));
+			return (double(numerator) / double(denominator));
 		}
 
 
