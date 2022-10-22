@@ -14,46 +14,46 @@ class Fraction
   		/// Конструктор без параметров
 	    Fraction();
 
-		//Конструктор с параметрами
+		/// Конструктор с параметрами
 		Fraction(int num, int denom);
 
-		////Деструктор
-		//~fraction();
+		//Деструктор
+		~Fraction();
 		
-	    //Задание дроби
+	    /// Задание дроби
 	    void initF(int num, int denom);
 
-	    //Вернуть знаменатель
+	    /// Вернуть знаменатель
 	    int getNumeratorF() const;
 
-	    //Вернуть числитель
+	    /// Вернуть числитель
 	    int getDenominatorF() const; 
 
-	    //Сравнение дробей
+	    /// Сравнение дробей
 	    int compareF(Fraction f1, Fraction f2);
 
-	    //Сумма дробей
-	    Fraction addF(Fraction const& f2);
+	    /// Сумма дробей
+	    Fraction addF(Fraction const& f1);
 
-	    //Разность дробей
-	   	Fraction subF(Fraction const& f2);
+	    /// Разность дробей
+	   	Fraction subF(Fraction const& f1);
 
-	   	//Произведение дробей
-	    Fraction multF(Fraction const& f2);
+	   	/// Произведение дробей
+	    Fraction multF(Fraction const& f1);
 
-	    //Частное дробей
-	    Fraction divF(Fraction const& f2);
+	    /// Частное дробей
+	    Fraction divF(Fraction const& f1);
 
-	    //Вывод дроби
+	    /// Вывод дроби
 		void printF();
 
-		//Наибольший общий делитель
+		/// Наибольший общий делитель
 		int nod(int a, int b);
 
-		//Сокращение
+		/// Сокращение
 		Fraction shortenF();
 
-		//Перевод в десятичную дробь
+		/// Перевод в десятичную дробь
 		double convertToDoubleF();
 
 };
