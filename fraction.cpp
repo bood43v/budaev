@@ -61,15 +61,15 @@ using namespace std;
 
 
 	/// Сравнить дроби
-	int Fraction::compareF(Fraction f1) { //todo
-		Fraction f2;
+	int Fraction::compareF(Fraction f1) { 
+		Fraction f;
 
-		f2 = f1.subF(f2);
-		if (f2.numerator > 0) {
+		f = (*this).subF(f1);
+		if (f.numerator > 0) {
 			return 1;
 		}
 		else {
-			if (f2.numerator < 0) {
+			if (f.numerator < 0) {
 				return -1;
 			}
 			else {
