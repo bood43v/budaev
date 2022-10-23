@@ -1,7 +1,8 @@
+/// https://pastebin.com/N29yVdwk
 #include "pch.h"
-#include "../class_fraction/fraction.cpp" /// с fraction.h выдаёт ошибку LNK2019, пока не разобрался
+#include "../class_fraction/fraction.cpp" /// Г± fraction.h ГўГ»Г¤Г ВёГІ Г®ГёГЁГЎГЄГі LNK2019, ГЇГ®ГЄГ  Г­ГҐ Г°Г Г§Г®ГЎГ°Г Г«Г±Гї
 
-/// Изменение дроби, получение числителя и знаменателя
+/// Г€Г§Г¬ГҐГ­ГҐГ­ГЁГҐ Г¤Г°Г®ГЎГЁ, ГЇГ®Г«ГіГ·ГҐГ­ГЁГҐ Г·ГЁГ±Г«ГЁГІГҐГ«Гї ГЁ Г§Г­Г Г¬ГҐГ­Г ГІГҐГ«Гї
 TEST(TestFraction, Test_init_getNumDenomF) {
 	Fraction f(2, 5);
 
@@ -14,7 +15,7 @@ TEST(TestFraction, Test_init_getNumDenomF) {
 	EXPECT_EQ(f.getDenominatorF(), 7);
 }
 
-/// Сравнение дробей
+/// Г‘Г°Г ГўГ­ГҐГ­ГЁГҐ Г¤Г°Г®ГЎГҐГ©
 TEST(TestFraction, Test_compareF) {
 	Fraction f1(11, 20);
 	Fraction f2(10, 20);
@@ -22,7 +23,7 @@ TEST(TestFraction, Test_compareF) {
 	EXPECT_EQ(f1.compareF(f2), 1);
 }
 
-/// Сумма дробей
+/// Г‘ГіГ¬Г¬Г  Г¤Г°Г®ГЎГҐГ©
 TEST(TestFraction, Test_addF) {
 	Fraction f1(2, 5);
 	Fraction f2(9, 5);
@@ -33,7 +34,7 @@ TEST(TestFraction, Test_addF) {
 	EXPECT_EQ(f3.getDenominatorF(), 5);
 }
 
-/// Разность дробей
+/// ГђГ Г§Г­Г®Г±ГІГј Г¤Г°Г®ГЎГҐГ©
 TEST(TestFraction, Test_subF) {
 	Fraction f1(2, 5);
 	Fraction f2(9, 5);
@@ -44,7 +45,7 @@ TEST(TestFraction, Test_subF) {
 	EXPECT_EQ(f3.getDenominatorF(), 5);
 }
 
-/// Произведение дробей
+/// ГЏГ°Г®ГЁГ§ГўГҐГ¤ГҐГ­ГЁГҐ Г¤Г°Г®ГЎГҐГ©
 TEST(TestFraction, Test_multF) {
 	Fraction f1(2, 5);
 	Fraction f2(9, 5);
@@ -55,7 +56,7 @@ TEST(TestFraction, Test_multF) {
 	EXPECT_EQ(f3.getDenominatorF(), 25);
 }
 
-/// Частное дробей
+/// Г—Г Г±ГІГ­Г®ГҐ Г¤Г°Г®ГЎГҐГ©
 TEST(TestFraction, Test_divF) {
 	Fraction f1(2, 5);
 	Fraction f2(9, 5);
@@ -66,7 +67,7 @@ TEST(TestFraction, Test_divF) {
 	EXPECT_EQ(f3.getDenominatorF(), 9);
 }
 
-/// Наибольший общий делитель
+/// ГЌГ ГЁГЎГ®Г«ГјГёГЁГ© Г®ГЎГ№ГЁГ© Г¤ГҐГ«ГЁГІГҐГ«Гј
 TEST(TestFraction, Test_nod) {
 	Fraction f;
 	int x = 24;
@@ -75,7 +76,7 @@ TEST(TestFraction, Test_nod) {
 	EXPECT_EQ(f.nod(x,y), 12);
 }
 
-/// Сокращение дроби
+/// Г‘Г®ГЄГ°Г Г№ГҐГ­ГЁГҐ Г¤Г°Г®ГЎГЁ
 TEST(TestFraction, Test_shortenF) {
 	Fraction f(4, 10);
 
@@ -84,7 +85,7 @@ TEST(TestFraction, Test_shortenF) {
 	EXPECT_EQ(f.getNumeratorF(), 2);
 	EXPECT_EQ(f.getDenominatorF(), 5);
 }
-/// Перевод дроби в вещественное число
+/// ГЏГҐГ°ГҐГўГ®Г¤ Г¤Г°Г®ГЎГЁ Гў ГўГҐГ№ГҐГ±ГІГўГҐГ­Г­Г®ГҐ Г·ГЁГ±Г«Г®
 TEST(TestFraction, Test_convertToDoubleF) {
 	Fraction f(4, 10);
 
