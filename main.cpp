@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	//fraction f1, f2, f3;
+	//Fraction f1, f2;
 
 	//f1.initF(2, 5);//Задание дробей
 	//f2.initF(4, 5);
@@ -20,6 +20,7 @@ int main()
 
 	Fraction f1(a, b);
 	Fraction f2(c, d);
+
 	Fraction f3;
 
 	/// Вывод дробей
@@ -48,7 +49,7 @@ int main()
 	cout << endl << "f3 = " << y << endl;/// Вывод суммы дробей
 	
 
-	int sign = f3.compareF(f1, f2);/// Сравнение дробей
+	int sign = f1.compareF(f2);/// Сравнение дробей
 	switch (sign) {
 	case  0: {
 		cout << "f1 is equal f2";

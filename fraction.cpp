@@ -61,15 +61,15 @@ using namespace std;
 
 
 	/// Сравнить дроби
-	int Fraction::compareF(Fraction f1, Fraction f2) {
-		Fraction f;
+	int Fraction::compareF(Fraction f1) { //todo
+		Fraction f2;
 
-		f = f1.subF(f2);
-		if (f.numerator > 0) {
+		f2 = f1.subF(f2);
+		if (f2.numerator > 0) {
 			return 1;
 		}
 		else {
-			if (f.numerator < 0) {
+			if (f2.numerator < 0) {
 				return -1;
 			}
 			else {
@@ -86,8 +86,10 @@ using namespace std;
 		int denom_ = this->denominator*f1.denominator;
 		Fraction f(num_, denom_);
 		return f;
+		//return Fraction((this->numerator * f1.denominator) + (f1.numerator * this->denominator), this->denominator * f1.denominator);
     }
 
+	/// Вычитание дроби
 	Fraction Fraction::subF( Fraction const &f1 ) {  
 		
 		int num_ = (this->numerator * f1.denominator) - (f1.numerator * this->denominator);
@@ -149,18 +151,17 @@ using namespace std;
 
 	/// Сокращение
 	Fraction Fraction::shortenF() {
-		Fraction f;
-
+		
 		int div = nod(this->numerator, this->denominator);
 		numerator = this->numerator / div;
 		denominator = this->denominator / div;
-		return f;
+		return *this;
 	}
 
 	/// Перевод в десятичную дробь
 	double Fraction::convertToDoubleF() 
 		{
-			return (double(numerator) / double(denominator));
+			return (double(numerator) / denominator);
 		}
 
 

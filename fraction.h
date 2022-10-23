@@ -30,7 +30,7 @@ class Fraction
 	    int getDenominatorF() const; 
 
 	    /// Сравнение дробей
-	    int compareF(Fraction f1, Fraction f2);
+	    int compareF(Fraction f1);
 
 	    /// Сумма дробей
 	    Fraction addF(Fraction const& f1);
