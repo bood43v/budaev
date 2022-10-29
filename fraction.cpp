@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 #include "fraction.h"
 
@@ -22,12 +23,11 @@ using namespace std;
 		{
 			numerator = 1;
 			denominator = 1;
-		}
-;
+		};
 	}
 
 	//Деструктор
-	Fraction::~Fraction() { return; }
+	Fraction::~Fraction() { }//cout << "Destructor called for Fraction " << stringFraction() << endl;  }
 
     /// Задание дроби
     void Fraction::initF(int num, int denom){  
@@ -85,6 +85,7 @@ using namespace std;
     	int num_ = (this->numerator * f1.denominator) + (f1.numerator* this->denominator);
 		int denom_ = this->denominator*f1.denominator;
 		Fraction f(num_, denom_);
+		f.shortenF();
 		return f;
 		//return Fraction((this->numerator * f1.denominator) + (f1.numerator * this->denominator), this->denominator * f1.denominator);
     }
@@ -95,6 +96,7 @@ using namespace std;
 		int num_ = (this->numerator * f1.denominator) - (f1.numerator * this->denominator);
 		int denom_ = this->denominator * f1.denominator;
 		Fraction f(num_, denom_);
+		f.shortenF();
 		return f;
 	}
 
@@ -104,6 +106,7 @@ using namespace std;
 		int num_ = this->numerator*f1.numerator;
 		int denom_ = this->denominator*f1.denominator;
 		Fraction f(num_, denom_);
+		f.shortenF();
 		return f;
 	}
 
@@ -113,6 +116,7 @@ using namespace std;
 		int num_ = this->numerator*f1.denominator;
 		int denom_ = this->denominator*f1.numerator;
 		Fraction f(num_, denom_);
+		f.shortenF();
 		return f;
 	}
 
@@ -123,7 +127,7 @@ using namespace std;
 
 
 	/// Наибольший общий делитель
-	int Fraction::nod(int a, int b)
+	int Fraction::greaterCommonDivisor(int a, int b) const
 	{
 		a = abs(a);
 		b = abs(b);
@@ -152,18 +156,21 @@ using namespace std;
 	/// Сокращение
 	Fraction Fraction::shortenF() {
 		
-		int div = nod(this->numerator, this->denominator);
+		int div = greaterCommonDivisor(this->numerator, this->denominator);
 		numerator = this->numerator / div;
 		denominator = this->denominator / div;
 		return *this;
 	}
 
 	/// Перевод в десятичную дробь
-	double Fraction::convertToDoubleF() 
+	double Fraction::convertToDoubleF() const 
 		{
 			return (double(numerator) / denominator);
 		}
 
+	string Fraction::stringFraction() {
+		return to_string(numerator) + "/" + to_string(denominator);
+	}
 
 
 

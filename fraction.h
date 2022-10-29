@@ -48,13 +48,14 @@ class Fraction
 		void printF();
 
 		/// Наибольший общий делитель
-		int nod(int a, int b);
+		int greaterCommonDivisor(int a, int b) const;
 
 		/// Сокращение
 		Fraction shortenF();
 
 		/// Перевод в десятичную дробь
-		double convertToDoubleF();
+		double convertToDoubleF() const;
 
+		string stringFraction();
 };
 
