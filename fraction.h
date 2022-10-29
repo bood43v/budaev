@@ -1,3 +1,6 @@
+/// Обыкновенные дроби и операции над ними
+/// Заголовки методов, описание класса
+/// @author Будаев Г.Б.
 #include <iostream>
 
 using namespace std;
@@ -16,6 +19,12 @@ class Fraction
 
 		/// Конструктор с параметрами
 		Fraction(int num, int denom);
+
+		/// Задать числитель
+		void setNumeratorF(int num);
+
+		/// Задать знаменатель
+		void setDemoninatorF(int denom);
 
 		//Деструктор
 		~Fraction();
@@ -45,7 +54,7 @@ class Fraction
 	    Fraction divF(Fraction const& f1);
 
 	    /// Вывод дроби
-		void printF();
+		//void printF();
 
 		/// Наибольший общий делитель
 		int greaterCommonDivisor(int a, int b) const;
@@ -56,6 +65,7 @@ class Fraction
 		/// Перевод в десятичную дробь
 		double convertToDoubleF() const;
 
+		/// Перевод в строку
 		string stringFraction();
 };
 
